@@ -1,0 +1,38 @@
+<div class="animate__lightSpeedOutRight">
+<h3>Region   <small>{{regionActiva | titlecase}}</small> </h3>
+
+<h5>Select Region</h5>
+  <div class="row">
+    <div class="col">
+      <!-- Primera forma de quitar y poner clases -->
+      <!-- [class.btn-primary]="region === regionActiva" -->
+
+
+      <!-- Segunda forma -->
+      <!-- [ngClass]="{
+      'btn-primary': regionActiva === region,
+      'btn-outline-primary': regionActiva !== region
+
+  }" -->
+      <button
+      *ngFor="let region of regiones"
+      [class]="getClaseCSS(region)"
+     (click)="activarRegion(region)"
+      >{{region | titlecase}}
+
+    </button>
+    </div>
+
+
+    <!-- <app-pais-tabla ></app-pais-tabla> -->
+  </div>
+
+
+</div>
+
+
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <app-pais-tabla [paises] ="paises"></app-pais-tabla>
+  </div>
+</div>

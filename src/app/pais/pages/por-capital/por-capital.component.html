@@ -1,0 +1,33 @@
+
+<div class="animate__lightSpeedOutRight">
+
+
+  <h2 >Capital City</h2>
+  <hr>
+
+
+  <div class="row">
+    <div class="col">
+  <!-- Escuchar el evento -->
+       <app-pais-input (onEnter)="buscar( $event )"
+        placeholder="Search Capital City..."
+     >
+
+
+       </app-pais-input>
+    </div>
+  </div>
+
+  <hr>
+
+</div>
+<div *ngIf="hayError"
+ class="alert alert-danger">
+  No se encontro nada relacionado con {{termino}}
+</div>
+
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <app-pais-tabla [paises] ="paises"></app-pais-tabla>
+  </div>
+</div>
